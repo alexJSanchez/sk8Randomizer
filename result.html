@@ -9,11 +9,20 @@
     <div id="results"></div>
     <a href="/">Back To Form</a>
     <script>
-        const resultList = document.querySelector('#result');
+        const resultList = document.querySelector('#results')
+        let kickflip = '';
+        console.log(window)
         new URLSearchParams(window.location.search).forEach((value,name) => {
-            resultList.append(`${name}: ${value}`)
+           if (name === "kickflip" && value === "on"){
+              kickflip = 'do a kickflip';
+              console.log(Math.floor((Math.random() * 10)))
+           }else{
+               console.log('this is not working');
+           }
+            resultList.append(kickflip)
             resultList.append(document.createElement('br'))
         })
+        console.log(window.location)
     </script>
 </body>
 </html>
