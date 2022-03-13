@@ -11,20 +11,35 @@
     <script>
         const resultList = document.querySelector('#results')
         let kickflip = '';
-        console.log(window)
+        let spin = '';
+  console.log(window.location)
         new URLSearchParams(window.location.search).forEach((value,name) => {
            if (name === "kickflip" && value === "on"){
-              flipSelector = Math.floor((Math.random() * 10));
+              flipSelector = Math.floor((Math.random() * 3));
+              console.log(flipSelector)
               switch (flipSelector){
                   case 0: kickflip = 'Kickflip';
-              } 
-           }else{
-               console.log('this is not working');
+                  break;
+                  case 1: kickflip = 'Variel-Kickflip';
+                  break;
+                  case 2: kickflip = 'TreFlip';
+                  break;
+              }
            }
-            resultList.append(kickflip)
-            resultList.append(document.createElement('br'))
+           if (name === "spin" && value === "on"){
+              flipSelector = Math.floor((Math.random() * 2));
+              console.log(flipSelector)
+              switch (flipSelector){
+                  case 0: spin = '180';
+                  break;
+                  case 1: spin = '360';
+                  break;
+              } 
+           }
         })
-        console.log(window.location)
+       
+        resultList.append(`do a  ${spin} ${kickflip}`)
+            resultList.append(document.createElement('br'))
     </script>
 </body>
 </html>
