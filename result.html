@@ -14,8 +14,10 @@
         console.log(window)
         new URLSearchParams(window.location.search).forEach((value,name) => {
            if (name === "kickflip" && value === "on"){
-              kickflip = 'do a kickflip';
-              console.log(Math.floor((Math.random() * 10)))
+              flipSelector = Math.floor((Math.random() * 10));
+              switch (flipSelector){
+                  case 0: kickflip = 'Kickflip';
+              } 
            }else{
                console.log('this is not working');
            }
