@@ -15,9 +15,9 @@
   console.log(window.location)
         new URLSearchParams(window.location.search).forEach((value,name) => {
             if (name === "spin" && value === "on"){
-              flipSelector = Math.floor((Math.random() * 4));
-              console.log(flipSelector)
-              switch (flipSelector){
+              spinSelector = Math.floor((Math.random() * 4));
+              console.log(spinSelector)
+              switch (spinSelector){
                   case 0: spin = 'Fs 180';
                   break;
                   case 1: spin = 'Bs 180';
@@ -27,9 +27,8 @@
                   case 4: spin = 'Bs 360';
                   break;    
                 }
-           }
-            if (name === "flip" && value === "on"){
-              flipSelector = Math.floor((Math.random() * 6));
+           }if(name === "flip" && value === "on"){
+              flipSelector = Math.floor((Math.random() * 5));
               console.log(flipSelector)
               switch (flipSelector){
                   case 0: flip = 'Kickflip';
@@ -45,10 +44,6 @@
                   case 5: flip = 'LazerFlip';
                   break;
                 }
-           }
-           if(spin === "Fs 180" && flip === "TreFlip"){
-               spin = "";
-               flip = "bigger spin"
            }
            
         })
