@@ -10,7 +10,9 @@ new URLSearchParams(window.location.search).forEach((value, name) => {
     console.log(name)
    console.log(value)
    if(name === 'flip' && value === 'on'){
-       flip.textContent = 'kickflip';
+    let randomNumber = Math.floor(Math.random()*3)  
+    console.log(randomNumber)
+    flip.textContent = 'kickflip';
         document.querySelector('#results').append(flip);
   }
 
