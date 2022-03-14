@@ -15,9 +15,24 @@
 
         let flip = '';
         let spin = '';
+        let stance = '';
   console.log(window.location)
         new URLSearchParams(window.location.search).forEach((value,name) => {
-            if (name === "spin" && value === "on"){
+            if (name === "stance" && value === "on"){
+              spinSelector = Math.floor((Math.random() * 4));
+              console.log(spinSelector)
+              switch (spinSelector){
+                  case 0: stance = 'Regular';
+                  break;
+                  case 1: stance = 'Switch';
+                  break;  
+                  case 2: stance = 'Nollie';
+                  break;
+                  case 3: stance = 'Fackie';
+                  break;    
+                }  
+           }
+           if (name === "spin" && value === "on"){
               spinSelector = Math.floor((Math.random() * 4));
               console.log(spinSelector)
               switch (spinSelector){
@@ -43,7 +58,7 @@
                   break;
                   case 3: flip = 'Heelflip';
                   break;
-                  case 4: flip = 'VarielHeel';
+                  case 4: flip = 'Variel-Heelflip';
                   break;
                   case 5: flip = 'LazerFlip';
                   break;
@@ -52,7 +67,7 @@
            
         })
 
-        document.querySelector('#skate-line').textContent = `${spin} ${flip}`;
+        document.querySelector('#skate-line').textContent = `${stance} ${spin} ${flip}`;
         
         resultList.append(document.createElement('br'))
     </script>
