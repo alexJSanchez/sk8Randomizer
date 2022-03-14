@@ -5,12 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <script defer type="module" src="/main.js"></script>
+    <script type="text/javascript" src="./main.js" defer></script>
     <title>Trick Randomizer</title>
   </head>
   <body>
     
-    <form action="result.html" method="GET"> 
+    <form action="./index.html" method="GET"> 
     <div>
       <p>Choose your trick</p>
     </div>
@@ -29,8 +29,12 @@
        <input name="flip" type="checkbox">
       </label>
     </div>
-        <button >Submit</button>
+        <button class="submit" type="submit" >Submit</button>
     </form>
     
+    <div id="results">
+        
+    </div>
+
   </body>
 </html>
