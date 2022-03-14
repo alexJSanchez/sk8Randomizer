@@ -6,9 +6,9 @@
         let flip = '';
         let spin = '';
         let stance = '';
- 
+        
        
-      
+      let checkBox = document.querySelector('.flip');
             function creatLine(){
             new URLSearchParams(window.location.search).forEach((value,name) => {
                 let trickSentence = document.createElement('p');
@@ -63,9 +63,26 @@
                resultList.appendChild(trickSentence);
             })
         }
-        document.querySelector('.submit').addEventListener('click', Event => {
-            Event.preventDefault();
-            creatLine();
+        function check() {
+            document.querySelector(".flip").checked = true;
+          }
+          function uncheck() {
+            document.querySelector(".flip").checked = false;
+          }
+          
+         
+        document.querySelector('.check').addEventListener('click', Event => {
+           document.querySelector(".flip").checked = true;
+           Event.preventDefault();
         })
-        
+        document.querySelector('.uncheck').addEventListener('click', Event => {
+           document.querySelector(".flip").checked = false;
+           Event.preventDefault();
+        })
+        if(document.querySelector(".flip").checked === false){
+            console.log('hello')
+        }
+          
+         
         resultList.append(document.createElement('br'))
+       
