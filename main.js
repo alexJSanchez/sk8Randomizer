@@ -1,14 +1,16 @@
-const resultsContainer = document.getElementById('#results');
-let flip = document.createElement('p');
-flip.className = "flip";
+let resultsContainer = document.querySelector('#results');
+
 let numberOfTricks = 0;
 
 
 function randomNumber(){
-  let randomNumber = Math.floor(Math.random() * 3);
+  let randomNumber = 0;
+  randomNumber = Math.floor(Math.random() * 3);
   return randomNumber;
 }
 function flipFunction(randomNumber){
+  let flip = document.createElement('p');
+  flip.className = "flip";
   if (randomNumber === 0) {
     flip.textContent = "kickflip";
   } else if (randomNumber === 1) {
@@ -16,8 +18,7 @@ function flipFunction(randomNumber){
   } else if (randomNumber === 2) {
     flip.textContent = "treflip";
   } 
-  console.log('hello')
-  return flip
+  return flip;
 }
 
 new URLSearchParams(window.location.search).forEach((value, name) => {
@@ -33,15 +34,15 @@ new URLSearchParams(window.location.search).forEach((value, name) => {
 new URLSearchParams(window.location.search).forEach((value, name) => {
   console.log(`${name}: ${value}`);
   if (name === "flip" && value === "on" && numberOfTricks === 0) {
-     flipFunction(randomNumber());
+    resultsContainer.append(flipFunction(randomNumber()));
   }else if(name === "flip" && value === "on" && numberOfTricks === 1){
-   flipFunction(randomNumber());
-   flipFunction(randomNumber());
+    resultsContainer.append(flipFunction(randomNumber()));
+    resultsContainer.append(flipFunction(randomNumber()));
   }else if(name === "flip" && value === "on" && numberOfTricks === 2){
-    flipFunction(randomNumber());
-    flipFunction(randomNumber());
-    flipFunction(randomNumber());
+    resultsContainer.append(flipFunction(randomNumber()));
+    resultsContainer.append(flipFunction(randomNumber()));
+    resultsContainer.append(flipFunction(randomNumber()));
   }
 });
 
-  
+   
