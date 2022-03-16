@@ -57,10 +57,10 @@ new URLSearchParams(window.location.search).forEach((value, name) => {
   console.log(`${name}: ${value}`);
   if (name === "spin" && value === "on" && numberOfTricks === 0) {
    resultsContainer.append(spinFunction(spinRandomNumber()));
-  }else if(name === "flip" && value === "on" && numberOfTricks === 1){
+  }else if(name === "spin" && value === "on" && numberOfTricks === 1){
     resultsContainer.append(spinFunction(spinRandomNumber()));
     resultsContainer.append(spinFunction(spinRandomNumber()));
-  }else if(name === "flip" && value === "on" && numberOfTricks === 2){
+  }else if(name === "spin" && value === "on" && numberOfTricks === 2){
     resultsContainer.append(spinFunction(spinRandomNumber()));
     resultsContainer.append(spinFunction(spinRandomNumber()));
     resultsContainer.append(spinFunction(spinRandomNumber()));
