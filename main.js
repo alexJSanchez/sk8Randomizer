@@ -1,4 +1,5 @@
 let resultsContainer = document.querySelector('#results');
+let rotationContainer = document.querySelector('#rotation');
  let spinContainer = document.querySelector('#spin');
  let flipContainer = document.querySelector('#flip');
 let numberOfTricks = 0;
@@ -14,13 +15,28 @@ function spinRandomNumber(){
   spinRandomNumber = Math.floor(Math.random() * 2);
   return spinRandomNumber;
 }
+function rotationRandomNumber(){
+  let rotationRandomNumber = 0;
+  rotationRandomNumber = Math.floor(Math.random() * 2);
+  return rotationRandomNumber;
+}
+function rotationFunction(rotationRandomNumber){
+  let rotation = document.createElement('p');
+  rotation.className = "rotation";
+  if (rotationRandomNumber === 0) {
+    rotation.textContent = "Fs";
+  } else if (rotationRandomNumber === 1) {
+    rotation.textContent = "Bs";
+  } 
+  return rotation;
+}
 function spinFunction(spinRandomNumber){
   let spin = document.createElement('p');
   spin.className = "spin";
   if (spinRandomNumber === 0) {
-    spin.textContent = "180 ";
+    spin.textContent = "180";
   } else if (spinRandomNumber === 1) {
-    spin.textContent = "360 ";
+    spin.textContent = "360";
   } 
   return spin;
 }
@@ -53,6 +69,21 @@ new URLSearchParams(window.location.search).forEach((value, name) => {
     numberOfTricks = 2;
   }
 });
+
+new URLSearchParams(window.location.search).forEach((value, name) => {
+  console.log(`${name}: ${value}`);
+  if (name === "rotation" && value === "on" && numberOfTricks === 0) {
+   rotationContainer.append(rotationFunction(rotationRandomNumber()));
+  }else if (name === "rotation" && value === "on" && numberOfTricks === 1) {
+    rotationContainer.append(rotationFunction(rotationRandomNumber()));
+    rotationContainer.append(rotationFunction(rotationRandomNumber()));
+   }else if (name === "rotation" && value === "on" && numberOfTricks === 2) {
+    rotationContainer.append(rotationFunction(rotationRandomNumber()));
+    rotationContainer.append(rotationFunction(rotationRandomNumber()));
+    rotationContainer.append(rotationFunction(rotationRandomNumber()));
+   } 
+});
+
 
 new URLSearchParams(window.location.search).forEach((value, name) => {
   console.log(`${name}: ${value}`);
