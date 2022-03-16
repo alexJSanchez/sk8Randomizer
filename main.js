@@ -1,5 +1,6 @@
 let resultsContainer = document.querySelector('#results');
- 
+ let spinContainer = document.querySelector('#spin');
+ let flipContainer = document.querySelector('#flip');
 let numberOfTricks = 0;
 
 
@@ -17,9 +18,9 @@ function spinFunction(spinRandomNumber){
   let spin = document.createElement('p');
   spin.className = "spin";
   if (spinRandomNumber === 0) {
-    spin.textContent = "180";
+    spin.textContent = "180 ";
   } else if (spinRandomNumber === 1) {
-    spin.textContent = "360";
+    spin.textContent = "360 ";
   } 
   return spin;
 }
@@ -56,28 +57,28 @@ new URLSearchParams(window.location.search).forEach((value, name) => {
 new URLSearchParams(window.location.search).forEach((value, name) => {
   console.log(`${name}: ${value}`);
   if (name === "spin" && value === "on" && numberOfTricks === 0) {
-   resultsContainer.append(spinFunction(spinRandomNumber()));
+   spinContainer.append(spinFunction(spinRandomNumber()));
   }else if(name === "spin" && value === "on" && numberOfTricks === 1){
-    resultsContainer.append(spinFunction(spinRandomNumber()));
-    resultsContainer.append(spinFunction(spinRandomNumber()));
+   spinContainer.append(spinFunction(spinRandomNumber()));
+  spinContainer.append(spinFunction(spinRandomNumber()));
   }else if(name === "spin" && value === "on" && numberOfTricks === 2){
-    resultsContainer.append(spinFunction(spinRandomNumber()));
-    resultsContainer.append(spinFunction(spinRandomNumber()));
-    resultsContainer.append(spinFunction(spinRandomNumber()));
+ spinContainer.append(spinFunction(spinRandomNumber()));
+    spinContainer.append(spinFunction(spinRandomNumber()));
+    spinContainer.append(spinFunction(spinRandomNumber()));
   }
 });
 
 new URLSearchParams(window.location.search).forEach((value, name) => {
   console.log(`${name}: ${value}`);
   if (name === "flip" && value === "on" && numberOfTricks === 0) {
-   resultsContainer.append(flipFunction(flipRandomNumber()));
+   flipContainer.append(flipFunction(flipRandomNumber()));
   }else if(name === "flip" && value === "on" && numberOfTricks === 1){
-    resultsContainer.append(flipFunction(flipRandomNumber()));
-    resultsContainer.append(flipFunction(flipRandomNumber()));
+    flipContainer.append(flipFunction(flipRandomNumber()));
+    flipContainer.append(flipFunction(flipRandomNumber()));
   }else if(name === "flip" && value === "on" && numberOfTricks === 2){
-    resultsContainer.append(flipFunction(flipRandomNumber()));
-    resultsContainer.append(flipFunction(flipRandomNumber()));
-    resultsContainer.append(flipFunction(flipRandomNumber()));
+    flipContainer.append(flipFunction(flipRandomNumber()));
+    flipContainer.append(flipFunction(flipRandomNumber()));
+    flipContainer.append(flipFunction(flipRandomNumber()));
   }
 });
 
