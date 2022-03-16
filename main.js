@@ -40,7 +40,7 @@ function flipFunction(flipRandomNumber){
     flip.textContent = "Variel-Flip";
   } else if (flipRandomNumber === 5) {
     flip.textContent = "Lazer-Flip";
-  } 
+  }   
   return flip;
 }
 
